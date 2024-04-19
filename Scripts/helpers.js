@@ -42,7 +42,7 @@ exports.resolveRubyDebugSocketPath = async function() {
       cwd: nova.workspace.path,
       args: ["rdbg", "--util=list-socks"],
       stdio: ["ignore", "pipe", "pipe"],
-      shell: true
+      shell: false
     })
 
     let str = ""
