@@ -19,7 +19,10 @@ exports.resolveRdbgPath = async function() {
     })
 
     process.onDidExit((status) => {
-      if (status == 1) reject(err)
+      if (status == 1) {
+        console.error("An error occured while determining `rdbg` path.")
+        reject(err)
+      }
 
       str = str.trim()
       if (str.length == 0 || str == "rdbg not found") {
@@ -54,7 +57,10 @@ exports.resolveRubyDebugSocketPath = async function() {
     })
 
     process.onDidExit((status) => {
-      if (status == 1) reject(err)
+      if (status == 1) {
+        console.error("An error occured while determining open rdbg sockets.")
+        reject(err)
+      }
 
       str = str.trim()
       if (str.length == 0) {
@@ -92,7 +98,10 @@ exports.generateRubyDebugSocketPath = async function() {
     })
 
     process.onDidExit((status) => {
-      if (status == 1) reject(err)
+      if (status == 1) {
+        console.error("An error occured whyle generating rdbg socket.")
+        reject(err)
+      }
 
       str = str.trim()
       if (str.length == 0) {
